@@ -403,6 +403,9 @@ mod os {
     pub const SHUT_RD: c_int   = 0;
     pub const SHUT_WR: c_int   = 1;
     pub const SHUT_RDWR: c_int = 2;
+
+    // Ancillary message types
+    pub const SCM_RIGHTS: c_int = 0x1010;
 }
 
 #[cfg(test)]
