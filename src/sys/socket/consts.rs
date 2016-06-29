@@ -325,7 +325,7 @@ mod os {
 
 #[cfg(target_os = "solaris")]
 mod os {
-    use libc::{c_int, uint8_t};
+    use libc::{self, c_int, uint8_t};
 
     pub const AF_UNIX: c_int = 1;
     pub const AF_LOCAL: c_int = AF_UNIX;
