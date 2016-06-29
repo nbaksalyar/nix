@@ -11,7 +11,7 @@ pub use self::ffi::consts::FlowArg::*;
 mod ffi {
     pub use self::consts::*;
 
-    #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "openbsd", target_os = "netbsd", target_os = "linux"))]
+    #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "openbsd", target_os = "netbsd", target_os = "linux", target_os = "solaris"))]
     mod non_android {
         use super::consts::*;
         use libc::c_int;
@@ -35,7 +35,7 @@ mod ffi {
         }
     }
 
-    #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "openbsd", target_os = "netbsd", target_os = "linux"))]
+    #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "openbsd", target_os = "netbsd", target_os = "linux", target_os = "solaris"))]
     pub use self::non_android::*;
 
     // On Android before 5.0, Bionic directly inline these to ioctl() calls.
@@ -427,7 +427,7 @@ mod ffi {
 
     #[cfg(target_os = "solaris")]
     pub mod consts {
-        use libc::{c_int, c_ulong, c_uchar};
+        use libc::{c_int, c_ulong, c_uchar, c_uint};
 
         pub type tcflag_t = c_uint;
         pub type cc_t = c_uchar;
