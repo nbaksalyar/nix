@@ -427,7 +427,7 @@ mod ffi {
 
     #[cfg(target_os = "solaris")]
     pub mod consts {
-        use libc::{c_int, c_ulong, c_uchar, c_uint};
+        use libc::{c_int, c_uchar, c_uint};
 
         pub type tcflag_t = c_uint;
         pub type cc_t = c_uchar;
