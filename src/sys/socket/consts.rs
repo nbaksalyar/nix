@@ -465,8 +465,6 @@ mod test {
             SO_RCVTIMEO,
             SO_SNDTIMEO,
             SO_REUSEADDR,
-            #[cfg(not(target_os = "solaris"))]
-            SO_REUSEPORT,
             SO_SNDBUF,
             SO_TIMESTAMP,
             SO_TYPE,
@@ -491,7 +489,10 @@ mod test {
             SHUT_RDWR
             );
 
-
+        #[cfg(not(target_os = "solaris"))]
+        check_const!(
+            SO_REUSEPORT
+            );
     }
 
     #[cfg(target_os = "linux")]
