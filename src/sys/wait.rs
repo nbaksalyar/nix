@@ -178,6 +178,51 @@ mod status {
     }
 }
 
+#[cfg(target_os = "solaris")]
+mod status {
+    use sys::signal;
+
+    const WCOREFLG: i32 = 0x80;
+    const WSTOPFLG: i32 = 0x7f;
+    const WCONTFLG: i32 = 0xffff;
+
+    fn wstatus(status: i32) -> i32 {
+        status & 0x7F
+    }
+
+    pub fn stopped(status: i32) -> bool {
+        wstatus(status) == WSTOPFLG
+    }
+
+    pub fn stop_signal(status: i32) -> signal::SigNum {
+        (status >> 8) as signal::SigNum
+    }
+
+    pub fn signaled(status: i32) -> bool {
+        wstatus(status) != WSTOPFLG && wstatus(status) != 0
+    }
+
+    pub fn term_signal(status: i32) -> signal::SigNum {
+        wstatus(status) as signal::SigNum
+    }
+
+    pub fn exited(status: i32) -> bool {
+        wstatus(status) == 0
+    }
+
+    pub fn exit_status(status: i32) -> i8 {
+        (status >> 8) as i8
+    }
+
+    pub fn continued(status: i32) -> bool {
+        status == WCONTFLG
+    }
+
+    pub fn dumped_core(status: i32) -> bool {
+        (status & WCOREFLG) != 0
+    }
+}
+
 fn decode(pid : pid_t, status: i32) -> WaitStatus {
     if status::exited(status) {
         WaitStatus::Exited(pid, status::exit_status(status))
