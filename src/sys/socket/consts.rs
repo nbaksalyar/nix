@@ -396,6 +396,8 @@ mod os {
             const MSG_OOB      = 0x01,
             const MSG_PEEK     = 0x02,
             const MSG_EOR      = 0x08,
+            const MSG_CTRUNC   = 0x10,
+            const MSG_TRUNC    = 0x20,
             const MSG_DONTWAIT = 0x80,
         }
     }
@@ -488,8 +490,11 @@ mod test {
             SHUT_WR,
             SHUT_RDWR
             );
+    }
 
-        #[cfg(not(target_os = "solaris"))]
+    #[cfg(not(target_os = "solaris"))]
+    #[test]
+    pub fn test_reuse_port_const() {
         check_const!(
             SO_REUSEPORT
             );
