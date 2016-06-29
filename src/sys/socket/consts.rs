@@ -362,6 +362,7 @@ mod os {
     pub const SO_TIMESTAMP: c_int           = 0x1013;
     pub const SO_TYPE: c_int                = 0x1008;
     // FIXME: these values isn't supported by Solaris
+    // http://stackoverflow.com/a/14388707/168853
     // pub const SO_NOSIGPIPE: c_int           = 0x0800; // different value!
     // pub const SO_REUSEPORT: c_int           = 0x0200;
 
