@@ -395,6 +395,7 @@ mod os {
         flags MsgFlags : libc::c_int {
             const MSG_OOB      = 0x01,
             const MSG_PEEK     = 0x02,
+            const MSG_EOR      = 0x08,
             const MSG_DONTWAIT = 0x80,
         }
     }
@@ -464,7 +465,8 @@ mod test {
             SO_RCVTIMEO,
             SO_SNDTIMEO,
             SO_REUSEADDR,
-            // SO_REUSEPORT,
+            #[cfg(not(target_os = "solaris"))]
+            SO_REUSEPORT,
             SO_SNDBUF,
             SO_TIMESTAMP,
             SO_TYPE,
