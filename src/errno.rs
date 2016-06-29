@@ -293,37 +293,37 @@ fn desc(errno: Errno) -> &'static str {
         #[cfg(any(target_os = "linux", target_os = "android"))]
         EOVERFLOW       => "Value too large for defined data type",
 
-        #[cfg(any(target_os = "linux", target_os = "android"))]
+        #[cfg(any(target_os = "linux", target_os = "android", target_os = "solaris"))]
         ENOTUNIQ        => "Name not unique on network",
 
-        #[cfg(any(target_os = "linux", target_os = "android"))]
+        #[cfg(any(target_os = "linux", target_os = "android", target_os = "solaris"))]
         EBADFD          => "File descriptor in bad state",
 
-        #[cfg(any(target_os = "linux", target_os = "android"))]
+        #[cfg(any(target_os = "linux", target_os = "android", target_os = "solaris"))]
         EREMCHG         => "Remote address changed",
 
-        #[cfg(any(target_os = "linux", target_os = "android"))]
+        #[cfg(any(target_os = "linux", target_os = "android", target_os = "solaris"))]
         ELIBACC         => "Can not acces a needed shared library",
 
-        #[cfg(any(target_os = "linux", target_os = "android"))]
+        #[cfg(any(target_os = "linux", target_os = "android", target_os = "solaris"))]
         ELIBBAD         => "Accessing a corrupted shared library",
 
-        #[cfg(any(target_os = "linux", target_os = "android"))]
+        #[cfg(any(target_os = "linux", target_os = "android", target_os = "solaris"))]
         ELIBSCN         => ".lib section in a.out corrupted",
 
-        #[cfg(any(target_os = "linux", target_os = "android"))]
+        #[cfg(any(target_os = "linux", target_os = "android", target_os = "solaris"))]
         ELIBMAX         => "Attempting to link in too many shared libraries",
 
-        #[cfg(any(target_os = "linux", target_os = "android"))]
+        #[cfg(any(target_os = "linux", target_os = "android", target_os = "solaris"))]
         ELIBEXEC        => "Cannot exec a shared library directly",
 
-        #[cfg(any(target_os = "linux", target_os = "android", target_os = "openbsd"))]
+        #[cfg(any(target_os = "linux", target_os = "android", target_os = "openbsd", target_os = "solaris"))]
         EILSEQ          => "Illegal byte sequence",
 
-        #[cfg(any(target_os = "linux", target_os = "android"))]
+        #[cfg(any(target_os = "linux", target_os = "android", target_os = "solaris"))]
         ERESTART        => "Interrupted system call should be restarted",
 
-        #[cfg(any(target_os = "linux", target_os = "android"))]
+        #[cfg(any(target_os = "linux", target_os = "android", target_os = "solaris"))]
         ESTRPIPE        => "Streams pipe error",
 
         #[cfg(any(target_os = "linux", target_os = "android"))]
@@ -404,7 +404,7 @@ fn desc(errno: Errno) -> &'static str {
         #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "openbsd", target_os = "netbsd"))]
         ENEEDAUTH       => "Need authenticator",
 
-        #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "openbsd", target_os = "netbsd"))]
+        #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "openbsd", target_os = "netbsd", target_os = "solaris"))]
         EOVERFLOW       => "Value too large to be stored in data type",
 
         #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "netbsd"))]
@@ -413,7 +413,7 @@ fn desc(errno: Errno) -> &'static str {
         #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "openbsd", target_os = "netbsd"))]
         ENOATTR         => "Attribute not found",
 
-        #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "netbsd"))]
+        #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "netbsd", target_os = "solaris"))]
         EBADMSG         => "Bad message",
 
         #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "netbsd"))]
@@ -425,19 +425,19 @@ fn desc(errno: Errno) -> &'static str {
         #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "ios"))]
         EOWNERDEAD      => "Previous owner died",
 
-        #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "openbsd", target_os = "netbsd"))]
+        #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "openbsd", target_os = "netbsd", target_os = "solaris"))]
         ENOTSUP         => "Operation not supported",
 
         #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "openbsd", target_os = "netbsd"))]
         EPROCLIM        => "Too many processes",
 
-        #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "openbsd", target_os = "netbsd"))]
+        #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "openbsd", target_os = "netbsd", target_os = "solaris"))]
         EUSERS          => "Too many users",
 
-        #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "openbsd", target_os = "netbsd"))]
+        #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "openbsd", target_os = "netbsd", target_os = "solaris"))]
         EDQUOT          => "Disc quota exceeded",
 
-        #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "openbsd", target_os = "netbsd"))]
+        #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "openbsd", target_os = "netbsd", target_os = "solaris"))]
         ESTALE          => "Stale NFS file handle",
 
         #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "openbsd", target_os = "netbsd"))]
@@ -464,7 +464,7 @@ fn desc(errno: Errno) -> &'static str {
         #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "openbsd", target_os = "netbsd"))]
         EAUTH           => "Authentication error",
 
-        #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "openbsd", target_os = "netbsd"))]
+        #[cfg(any(target_os = "macos", target_os = "freebsd", target_os = "dragonfly", target_os = "ios", target_os = "openbsd", target_os = "netbsd", target_os = "solaris"))]
         ECANCELED       => "Operation canceled",
 
         #[cfg(any(target_os = "macos", target_os = "ios"))]
@@ -512,7 +512,7 @@ fn desc(errno: Errno) -> &'static str {
         #[cfg(any(target_os = "macos", target_os = "ios"))]
         EQFULL          => "Interface output queue is full",
 
-        #[cfg(target_os = "openbsd")]
+        #[cfg(any(target_os = "openbsd", target_os = "solaris"))]
         EOPNOTSUPP      => "Operation not supported",
 
         #[cfg(target_os = "openbsd")]
@@ -523,6 +523,22 @@ fn desc(errno: Errno) -> &'static str {
  
         #[cfg(target_os = "dragonfly")]
         EASYNC          => "Async",
+
+
+        #[cfg(target_os = "solaris")]
+        EDEADLOCK       => "File locking deadlock error",
+
+        #[cfg(target_os = "solaris")]
+        EOWNERDEAD      => "Process died with the lock",
+
+        #[cfg(target_os = "solaris")]
+        ENOTRECOVERABLE => "Lock is not recoverable",
+
+        #[cfg(target_os = "solaris")]
+        ELOCKUNMAPPED   => "Locked lock was unmapped",
+
+        #[cfg(target_os = "solaris")]
+        ENOTACTIVE      => "Facility is not active",
     }
 }
 
