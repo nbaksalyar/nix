@@ -194,16 +194,16 @@ mod status {
         wstatus(status) == WSTOPFLG
     }
 
-    pub fn stop_signal(status: i32) -> signal::SigNum {
-        (status >> 8) as signal::SigNum
+    pub fn stop_signal(status: i32) -> Signal {
+        Signal::from_c_int(status >> 8).unwrap()
     }
 
     pub fn signaled(status: i32) -> bool {
         wstatus(status) != WSTOPFLG && wstatus(status) != 0
     }
 
-    pub fn term_signal(status: i32) -> signal::SigNum {
-        wstatus(status) as signal::SigNum
+    pub fn term_signal(status: i32) -> Signal {
+        Signal::from_c_int(wstatus(status)).unwrap()
     }
 
     pub fn exited(status: i32) -> bool {
