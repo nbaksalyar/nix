@@ -180,7 +180,7 @@ mod status {
 
 #[cfg(target_os = "solaris")]
 mod status {
-    use sys::signal;
+    use sys::signal::Signal;
 
     const WCOREFLG: i32 = 0x80;
     const WSTOPFLG: i32 = 0x7f;
